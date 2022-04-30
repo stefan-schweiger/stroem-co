@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from "vue";
 
-import animationItems from '../data/animation';
-import Gallery from '../components/Gallery.vue';
+import animationItems from "@/data/animation";
+import Gallery from "@/components/Gallery.vue";
 
 const items = ref(animationItems);
 </script>

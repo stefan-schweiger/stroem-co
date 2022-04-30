@@ -1,32 +1,33 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { ref, watch } from "vue";
+import { useRoute } from "vue-router";
 
-import Menu from './Menu.vue';
+import Menu from "@/components/Menu.vue";
 
 const route = useRoute();
 
-const count = ref(0);
 const showMenu = ref(false);
 
 watch(
   () => route.path,
-  (e) => {
+  () => {
     showMenu.value = false;
   }
 );
 </script>
 
 <template>
-  <header class="fixed top-0 h-16 w-full flex flex-row items-center z-50">
+  <header
+    class="fixed top-0 h-16 md:h-24 w-full flex flex-row items-center z-50"
+  >
     <div class="flex-1 flex flex-row items-baseline justify-between px-4">
       <router-link to="/">
-        <h1 class="text-5xl font-semibold">STROEM</h1>
+        <h1 class="text-5xl md:text-7xl font-semibold">STROEM</h1>
       </router-link>
       <div @click="showMenu = !showMenu">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="group h-10 w-10 rotate-90 cursor-pointer"
+          class="group h-10 w-10 md:h-16 md:w-16 rotate-90 cursor-pointer"
           viewBox="0 0 512 512"
         >
           <svg:style type="text/css">

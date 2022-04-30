@@ -1,19 +1,10 @@
 <script setup lang="ts">
-import Inprint from './Inprint.vue';
+import Inprint from "@/components/Inprint.vue";
 </script>
 
 <template>
   <div
-    class="
-      fixed
-      z-40
-      inset-0
-      bg-white/60
-      pt-16
-      px-4
-      backdrop-blur-xl
-      animate-fade-in
-    "
+    class="fixed z-40 inset-0 bg-white/60 pt-16 md:pt-24 px-4 backdrop-blur-xl animate-fade-in"
   >
     <ul class="text-right text-3xl">
       <li class="hover:text-primary">

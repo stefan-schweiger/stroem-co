@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Mousewheel, Pagination } from 'swiper';
+import { Ref, ref, watch } from "vue";
+import { useRoute } from "vue-router";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Mousewheel } from "swiper";
 
 const disableScroll = ref(false);
 const currentItem = ref(0);
@@ -15,9 +15,9 @@ const props = defineProps({
 
 const route = useRoute();
 const initialItem = ref(0);
-const carouselSwiper = ref(null);
+const carouselSwiper: Ref<any> = ref(null);
 
-const getIndex = (hash) => {
+const getIndex = (hash: string): number | undefined => {
   const num = Number(hash.substring(1));
 
   if (Number.isInteger(num)) {
@@ -25,18 +25,18 @@ const getIndex = (hash) => {
   }
 };
 
-const onSwiper = (swiper) => {
+const onSwiper = (swiper: any) => {
   carouselSwiper.value = swiper;
 
   if (route.hash && getIndex(route.hash) != null) {
-    carouselSwiper.value.slideTo(getIndex(route.hash));
+    carouselSwiper.value?.slideTo(getIndex(route.hash));
   }
 };
 
 watch(
   () => route.hash,
-  (e) => {
-    carouselSwiper.value.slideTo(getIndex(route.hash));
+  (hash) => {
+    carouselSwiper.value.slideTo(getIndex(hash));
   }
 );
 </script>
@@ -54,18 +54,14 @@ watch(
   >
     <swiper-slide v-for="(item, index) in props.items">
       <div
-        class="h-screen pt-16 px-4 pb-4 flex flex-col items-center"
+        class="h-screen pt-16 md:pt-24 px-4 pb-4 flex flex-col items-center"
         :style="{
           background: item.background,
           color: item.color,
         }"
       >
         <div class="flex-1 flex items-center">
-          <img
-            :src="item.image"
-            class="flex-1"
-            style="max-height: calc(100vh - 6rem)"
-          />
+          <img :src="item.image" class="carousel-image flex-1" />
         </div>
         <span>{{ item.name }}</span>
       </div>
@@ -74,13 +70,13 @@ watch(
 </template>
 
 <style scoped>
-.s-carousel::-webkit-scrollbar {
-  display: none;
+.carousel-image {
+  max-height: calc(100vh - 7rem);
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-.s-carousel {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+@screen md {
+  .carousel-image {
+    max-height: calc(100vh - 9rem);
+  }
 }
 </style>

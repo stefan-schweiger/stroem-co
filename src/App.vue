@@ -1,11 +1,11 @@
 <script setup lang="ts">
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/pagination";
 
-import Header from './components/Header.vue';
+import Header from "@/components/Header.vue";
 
-import './index.css';
+import "@/index.css";
 </script>
 
 <template>
