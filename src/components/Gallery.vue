@@ -12,7 +12,7 @@ const props = defineProps({
     <div
       v-for="(item, index) in props.items"
       :key="index"
-      class="relative overflow-hidden"
+      class="relative overflow-hidden animate-scale-in"
     >
       <router-link :to="{ name: route, hash: '#' + (index + 1) }">
         <div
