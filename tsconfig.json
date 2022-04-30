@@ -9,6 +9,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "lib": [
       "esnext",
       "dom"
@@ -28,6 +29,9 @@
     "src/**/*.vue"
   ],
   "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
     {
       "path": "./tsconfig.vite-config.json"
     }
