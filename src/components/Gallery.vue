@@ -19,7 +19,7 @@ const props = defineProps({
           :style="{
             'background-image': 'url(' + item.image + ')',
           }"
-          class="aspect-square bg-contain hover:scale-110 hover:saturate-[.25] transition-all duration-700"
+          class="aspect-square bg-cover hover:scale-110 hover:saturate-[.25] transition-all duration-700"
         ></div>
       </router-link>
     </div>
